@@ -44,6 +44,14 @@ int main()
                 string renameName = command.substr(command.find_last_of(" ") + 1, command.length());
                 myFolder.renameFolder(myFolder.getCurrentPath(), folder,renameName);
             }
+            else if (command.find("help") != string::npos) {
+                cout << "dir - wyswietl zawartosc folderu\n" << endl;
+                cout << "cd <nazwa_folderu> - przejdz do folderu\n" << endl;
+                cout << "cd .. - wroc do nadrzednego folderu\n" << endl;
+                cout << "mkdir <nazwa_folderu> - utworz folder\n" << endl;
+                cout << "rmdir <nazwa_folderu> - usun folder\n" << endl;
+                cout << "rename <nazwa_folderu1> <nazwa_folderu2> - zmien nazwe folderu\n" << endl;
+            }
         }
     }
     catch (const std::exception& err)
