@@ -9,4 +9,5 @@ public:
 	void openFolder(std::string, std::string);
 	void setCurrentPath(std::string);
 	std::string getCurrentPath();
+	void createFolder(std::string, std::string);
 };

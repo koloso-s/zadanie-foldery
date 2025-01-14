@@ -30,6 +30,10 @@ int main()
                     myFolder.setCurrentPath(myFolder.getCurrentPath() += "\\" + folder);
                 }
             }
+            else if (command.find("mkdir") != string::npos) {
+                string folder = command.substr(command.find_first_of(" ") + 1, command.length());
+                myFolder.createFolder(myFolder.getCurrentPath(), folder);
+            }
         }
     }
     catch (const std::exception& err)
