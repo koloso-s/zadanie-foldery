@@ -34,6 +34,16 @@ int main()
                 string folder = command.substr(command.find_first_of(" ") + 1, command.length());
                 myFolder.createFolder(myFolder.getCurrentPath(), folder);
             }
+            else if (command.find("rmdir") != string::npos) {
+                string folder = command.substr(command.find_first_of(" ") + 1, command.length());
+                myFolder.removeFolder(myFolder.getCurrentPath(), folder);
+            }
+            else if (command.find("rename") != string::npos) {
+                string folder = command.substr(command.find_first_of(" ") + 1, command.length());
+                folder = folder.substr(0, folder.find_first_of(" "));
+                string renameName = command.substr(command.find_last_of(" ") + 1, command.length());
+                myFolder.renameFolder(myFolder.getCurrentPath(), folder,renameName);
+            }
         }
     }
     catch (const std::exception& err)
