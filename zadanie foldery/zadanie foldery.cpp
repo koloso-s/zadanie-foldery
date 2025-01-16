@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include "foldery.h"
 #include <filesystem>
 #include <string>
@@ -10,7 +10,10 @@ namespace fs = std::filesystem;
 
 int main()
 {
-    folder myFolder("C:\\Users\\werte\\Documents\\lol");
+    cout << "Podaj sciezke bazowa:" << endl;
+    string initPath;
+    getline(cin, initPath);
+    folder myFolder(initPath);
     try
     {
         while (true) {
@@ -51,6 +54,14 @@ int main()
                 cout << "mkdir <nazwa_folderu> - utworz folder\n" << endl;
                 cout << "rmdir <nazwa_folderu> - usun folder\n" << endl;
                 cout << "rename <nazwa_folderu1> <nazwa_folderu2> - zmien nazwe folderu\n" << endl;
+            }
+            else if (command.find("copy") != string::npos) {
+                
+                string source = command.substr(command.find_first_of(" ") + 1, command.length());
+                source = source.substr(0, source.find_first_of(" "));
+                string dest = command.substr(command.find_last_of(" ") + 1, command.length());
+                if (source == dest) cout << "Źródło musi być inne od ścieżki docelowej" << endl;
+                else myFolder.copy(source, dest);
             }
         }
     }

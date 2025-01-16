@@ -12,4 +12,5 @@ public:
 	void createFolder(std::string, std::string);
 	void removeFolder(std::string, std::string);
 	void renameFolder(std::string, std::string, std::string);
+	void copy(std::string, std::string);
 };
